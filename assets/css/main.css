@@ -1,0 +1,352 @@
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+  /*-------- Colors --------*/
+  --first-color: hsl(161, 66%, 45%);
+  --first-color-alt: hsl(161, 66%, 37%);
+  --second-color: hsl(201, 100%, 50%);
+  --title-color: hsl(0, 0%, 90%);
+  --text-color: hsl(0, 0%, 70%);
+  --text-color-light: hsl(0, 0%, 80%);
+  --body-color: hsl(213, 31%, 14%);
+  /*-------- Font --------*/
+  --body-font: "Montserrat", sans-serif;
+  --biggest-font-size: 4rem;
+  --h1-font-size: 2.25rem;
+  --h2-font-size: 1.5rem;
+  --h3-font-size: 1.25rem;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.875rem;
+  --smaller-font-size: 0.813rem;
+  --font-medium: 500;
+  --font-semi-bold: 700;
+  /*-------- Other --------*/
+  --main-transition: all 0.5s ease;
+}
+
+/*=============== BASE ===============*/
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  /* For animation dark mode */
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: -50px;
+  left: -90px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  -webkit-filter: blur(50px);
+          filter: blur(50px);
+  background-color: rgba(48, 213, 160, 0.7);
+  z-index: -99;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  right: -50px;
+  bottom: -90px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  -webkit-filter: blur(50px);
+  filter: blur(50px);
+  background-color: rgba(48, 155, 213, 0.7);
+  z-index: -99;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button {
+  font-family: var(--body-font);
+  outline: none;
+  border: none;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.btn {
+  background-color: var(--first-color);
+  padding: 0.8rem 1.3rem;
+  color: #fff;
+  border-radius: 10px;
+  display: inline-block;
+  text-transform: capitalize;
+  font-size: var(--small-font-size);
+  -webkit-transition: var(--main-transition);
+  transition: var(--main-transition);
+}
+
+.btn:hover {
+  background-color: var(--first-color-alt);
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+
+.section {
+  padding-top: 4.5rem;
+  padding-bottom: 2rem;
+}
+
+.section__title {
+  font-size: var(--h2-font-size);
+  margin-bottom: 1rem;
+}
+
+.section__title span {
+  color: var(--second-color);
+}
+
+.section__subtitle {
+  display: block;
+  font-size: var(--small-font-size);
+  color: var(--second-color);
+}
+
+/*=============== THEME ===============*/
+#main-header {
+  background: transparent;
+}
+
+#main-header .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+#main-header .container .logo-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#main-header .container .logo-container .logo-img {
+  width: 25px;
+}
+
+#main-header .container .logo-container .logo-name {
+  padding: 0 10px;
+  text-transform: capitalize;
+}
+
+#main-header .container .logo-container .logo-name span {
+  color: var(--first-color);
+}
+
+#main-header .container .nav-btns_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#main-header .container .nav-btns_container .main-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#main-header .container .nav-btns_container .main-nav a {
+  color: var(--text-color);
+  margin: 0 1rem;
+  padding-bottom: 5px;
+  -webkit-transition: var(--main-transition);
+  transition: var(--main-transition);
+  text-transform: capitalize;
+  border-bottom: transparent solid 4px;
+}
+
+#main-header .container .nav-btns_container .main-nav a:hover, #main-header .container .nav-btns_container .main-nav a.active {
+  color: var(--first-color);
+  border-bottom: var(--first-color) solid 4px;
+}
+
+#main-header .container .nav-btns_container .btns .btn {
+  color: #fff;
+  margin: 0 0.5rem;
+}
+
+#main-header .container .nav-btns_container .btns .btn.btn-login {
+  background-color: rgba(82, 82, 82, 0.15);
+  color: var(--text-color);
+}
+
+#main-header .container .nav-btns_container .btns .btn.btn-login:hover {
+  background-color: rgba(82, 82, 82, 0.5);
+}
+
+#main-header .container .sidebar-btn {
+  display: none;
+}
+
+#main-header.fixed {
+  position: fixed;
+  width: 100vw;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  background: rgba(25, 35, 47, 0.5);
+}
+
+#home-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#home-section .section__left .first_par {
+  margin-bottom: 1rem;
+}
+
+#home-section .section__left .hero_text {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+#home-section .section__left .hero_text span {
+  color: var(--first-color);
+}
+
+#home-section .section__left .last_par {
+  margin-bottom: 1.7rem;
+  color: var(--first-color);
+}
+
+#home-section .section__right img {
+  width: 32rem;
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For large devices */
+@media screen and (max-width: 1024px) {
+  :root {
+    --biggest-font-size: 2.25rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: 0.938rem;
+    --small-font-size: 0.813rem;
+    --smaller-font-size: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #home-section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #main-header .container .nav-btns_container {
+    position: fixed;
+    top: 0;
+    right: -150%;
+    background: rgba(0, 0, 0, 0.6);
+    -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+    height: 100vh;
+    min-width: 45vw;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-transition: var(--main-transition);
+    transition: var(--main-transition);
+    z-index: 100;
+  }
+  #main-header .container .nav-btns_container.active {
+    right: 0;
+  }
+  #main-header .container .nav-btns_container .main-nav {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #main-header .container .nav-btns_container .main-nav a {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  #main-header .container .sidebar-btn {
+    display: block;
+    padding: 0.6rem 0.75rem;
+    z-index: 101;
+    cursor: pointer;
+  }
+  #main-header .container .sidebar-btn svg {
+    fill: #e6e6e6;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  #main-header .container .nav-btns_container {
+    height: 100vh;
+    min-width: 100vw;
+  }
+}
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,35 @@
+#home-section {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  .section__left {
+    .first_par {
+      margin-bottom: 1rem;
+    }
+
+    .hero_text {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      span {
+        color: var(--first-color);
+      }
+    }
+
+    .last_par {
+      margin-bottom: 1.7rem;
+      color: var(--first-color);
+    }
+  }
+  .section__right {
+    img {
+      width: 32rem;
+    }
+  }
+}
+
+@mixin home_768px {
+  #home-section {
+    flex-direction: column;
+  }
+}
